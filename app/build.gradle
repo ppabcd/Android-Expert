@@ -9,6 +9,19 @@ apply from: '../shared_dependencies.gradle'
 android {
     compileSdk 32
 
+    lintOptions {
+        disable 'TypographyFractions','TypographyQuotes'
+        enable 'RtlHardcoded','RtlCompat', 'RtlEnabled'
+        check 'NewApi', 'InlinedApi'
+        quiet true
+        abortOnError false
+        ignoreWarnings true
+    }
+
+    lintOptions {
+        baseline file("lint-baseline.xml")
+    }
+
     defaultConfig {
         applicationId "id.rezajuliandri.github"
         minSdk 23
@@ -21,7 +34,7 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
@@ -32,7 +45,7 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
-    buildFeatures{
+    buildFeatures {
         viewBinding true
     }
     dynamicFeatures = [':favorites']

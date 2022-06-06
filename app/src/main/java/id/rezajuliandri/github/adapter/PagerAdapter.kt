@@ -7,11 +7,12 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 import id.rezajuliandri.github.followingfollowers.FollowingFollowersFragment
 import id.rezajuliandri.github.followingfollowers.FollowingFollowersFragment.Companion.ARG_SECTION_TYPE
 import id.rezajuliandri.github.followingfollowers.FollowingFollowersFragment.Companion.ARG_USERNAME
-import id.rezajuliandri.github.followingfollowers.FollowingFollowersFragment.FollType.*
+import id.rezajuliandri.github.followingfollowers.FollowingFollowersFragment.FollType.FOLLOWERS
+import id.rezajuliandri.github.followingfollowers.FollowingFollowersFragment.FollType.FOLLOWING
 import id.rezajuliandri.github.repository.RepositoryFragment
 import id.rezajuliandri.github.repository.RepositoryFragment.Companion.ARG_USERNAME as REPOSITORY_USERNAME_ARG
 
-class PagerAdapter (activity: AppCompatActivity, private val username: String) :
+class PagerAdapter(activity: AppCompatActivity, private val username: String) :
     FragmentStateAdapter(activity) {
     override fun getItemCount(): Int {
         return 3

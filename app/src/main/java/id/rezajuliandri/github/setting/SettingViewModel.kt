@@ -15,6 +15,7 @@ class SettingViewModel(private val settingPreferences: SettingPreferences) : Vie
             _themeResponse.postValue(values)
         }
     }
+
     fun saveThemeSetting(isDarkModeActive: Boolean) = viewModelScope.launch {
         settingPreferences.saveThemeSetting(isDarkModeActive)
     }

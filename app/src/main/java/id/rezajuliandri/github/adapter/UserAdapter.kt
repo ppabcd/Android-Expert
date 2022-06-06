@@ -7,10 +7,10 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import id.rezajuliandri.core.domain.model.User
-import id.rezajuliandri.github.utils.firstUpper
-import id.rezajuliandri.github.utils.loadImage
 import id.rezajuliandri.github.adapter.UserAdapter.MyViewHolder
 import id.rezajuliandri.github.databinding.ItemRowBinding
+import id.rezajuliandri.github.utils.firstUpper
+import id.rezajuliandri.github.utils.loadImage
 
 class UserAdapter(private val onItemClick: (User) -> Unit) :
     ListAdapter<User, MyViewHolder>(DIFF_CALLBACK) {

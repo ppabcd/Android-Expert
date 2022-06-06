@@ -1,6 +1,5 @@
 package id.rezajuliandri.core.data.remote.responses
 
-import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 
 data class UserResponse(

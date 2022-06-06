@@ -21,11 +21,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
 
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
+
                 <data
-                    android:pathPattern="/.*"
                     android:host="detail"
+                    android:pathPattern="/.*"
                     android:scheme="github" />
             </intent-filter>
             <nav-graph android:value="@navigation/main_navigation" />
@@ -35,8 +37,10 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
+
                 <data
                     android:host="settings"
                     android:scheme="github" />

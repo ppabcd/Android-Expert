@@ -1,6 +1,5 @@
 package id.rezajuliandri.core.data.remote
 
-import android.util.Log
 import id.rezajuliandri.core.data.remote.network.ApiResponse
 import id.rezajuliandri.core.data.remote.network.ApiService
 import id.rezajuliandri.core.data.remote.responses.RepositoryResponse
@@ -55,7 +54,7 @@ class RemoteDataSource(private val apiService: ApiService) {
             } else {
                 emit(ApiResponse.Empty)
             }
-        } catch (e: Exception){
+        } catch (e: Exception) {
             emit(ApiResponse.Error(e.toString()))
         }
     }.flowOn(Dispatchers.IO)

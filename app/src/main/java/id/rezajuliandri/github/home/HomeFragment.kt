@@ -1,8 +1,6 @@
 package id.rezajuliandri.github.home
 
 import android.annotation.SuppressLint
-import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
@@ -90,7 +88,7 @@ class HomeFragment : Fragment() {
             }
             searchField.setOnKeyListener { _, keyCode, event ->
                 if (keyCode == KeyEvent.KEYCODE_ENTER && event.action == KeyEvent.ACTION_UP) {
-                    if(!isNotValidData){
+                    if (!isNotValidData) {
                         viewModel.searchUser(searchField.text.toString())
                     }
                     true
