@@ -1,0 +1,52 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.Github" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/grey_800</item>
+        <item name="colorPrimaryVariant">@color/grey_github</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/grey_github</item>
+        <item name="colorSecondaryVariant">@color/grey_200</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <item name="colorControlNormal">@color/grey_github</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+        <item name="actionBarTheme">@style/ThemeOverlay.ActionBar</item>
+    </style>
+
+    <style name="ThemeEditText">
+        <!-- bottom line color -->
+        <item name="colorControlNormal">@color/black</item>
+        <!-- text color -->
+        <item name="android:textColor">@color/black</item>
+        <!-- hint text color -->
+        <item name="android:textColorHint">@color/grey</item>
+    </style>
+
+    <style name="ThemeOverlay.ActionBar" parent="ThemeOverlay.MaterialComponents.Toolbar.Primary">
+        <item name="colorPrimary">@color/white</item>
+        <item name="colorControlNormal">@color/grey_github</item>
+        <item name="android:textColorPrimary">@color/grey_github</item>
+    </style>
+
+    <style name="TextContent">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="TextContent.Block">
+        <item name="android:layout_width">match_parent</item>
+    </style>
+
+    <style name="LayoutContent" parent="TextContent.Block" />
+
+    <style name="TextContent.Block.AlignmentCenter">
+        <item name="android:textAlignment">center</item>
+    </style>
+
+    <style name="TextContent.Block.Vertical">
+        <item name="android:orientation">vertical</item>
+    </style>
+</resources>

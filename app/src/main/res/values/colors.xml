@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="grey">#FF9e9e9e</color>
+    <color name="grey_200">#FFEEEEEE</color>
+    <color name="grey_300">#FFE0E0E0</color>
+    <color name="grey_600">#FF757575</color>
+    <color name="grey_800">#FF424242</color>
+    <color name="grey_github">#FF161B22</color>
+
+    <color name="blue_500">#FF3B82F6</color>
+    <color name="blue_600">#FF2563EB</color>
+</resources>

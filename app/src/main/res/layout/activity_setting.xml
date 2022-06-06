@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="@string/theme"
+        android:textColor="@color/blue_600"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawablePadding="8dp"
+            android:paddingStart="18dp"
+            android:paddingEnd="18dp"
+            android:text="@string/dark_mode_activate"
+            android:textColor="?android:textColorPrimary"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:drawableLeftCompat="@drawable/ic_baseline_brightness_6_24" />
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/swithMaterial"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="@string/language_theme"
+        android:textColor="@color/blue_600"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/btn_language"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:background="@android:color/transparent"
+        android:backgroundTint="@color/white"
+        android:drawableTint="@color/grey_600"
+        android:text="@string/btn_language"
+        android:textAlignment="textStart"
+        android:textAllCaps="false"
+        android:textColor="?android:textColorPrimary"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:drawableLeftCompat="@drawable/ic_baseline_translate_24"
+        app:drawableTint="?android:textColorPrimary"
+        app:strokeColor="@color/grey"
+        app:strokeWidth="2dp" />
+</LinearLayout>
