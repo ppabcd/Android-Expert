@@ -8,6 +8,9 @@ import id.rezajuliandri.core.data.local.room.GithubDatabase
 import id.rezajuliandri.core.data.remote.RemoteDataSource
 import id.rezajuliandri.core.data.remote.network.ApiService
 import id.rezajuliandri.core.domain.repository.IGithubRepository
+import net.sqlcipher.database.SQLiteDatabase
+import net.sqlcipher.database.SupportFactory
+import okhttp3.CertificatePinner
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.android.ext.koin.androidContext
@@ -21,14 +24,23 @@ val databaseModule = module {
         get<GithubDatabase>().githubDao()
     }
     single {
+        val passphrase: ByteArray = SQLiteDatabase.getBytes("github".toCharArray())
+        val factory = SupportFactory(passphrase)
         Room.databaseBuilder(
             androidContext(),
             GithubDatabase::class.java, "Github.db"
-        ).fallbackToDestructiveMigration().build()
+        ).fallbackToDestructiveMigration()
+            .openHelperFactory(factory)
+            .build()
     }
 }
 val networkModule = module {
     single {
+        val hostname = "api.github.com"
+        val certificatePinner = CertificatePinner.Builder()
+            .add(hostname, "sha256/ORtIOYkm5k6Nf2tgAK/uwftKfNhJB3QS0Hs608SiRmE=")
+            .add(hostname, "sha256/uyPYgclc5Jt69vKu92vci6etcBDY8UNTyrHQZJpVoZY=")
+            .build()
         val loggingInterceptor = if (BuildConfig.DEBUG) {
             HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
         } else {
@@ -44,6 +56,7 @@ val networkModule = module {
                     ).build()
                 )
             }
+            .certificatePinner(certificatePinner)
             .connectTimeout(120, TimeUnit.SECONDS)
             .readTimeout(120, TimeUnit.SECONDS)
             .build()
