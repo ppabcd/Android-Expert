@@ -29,9 +29,8 @@ jobs:
         run: bash ./gradlew test --stacktrace
 
   build:
-
+    name: Build android application
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v3
       - name: set up JDK 11
