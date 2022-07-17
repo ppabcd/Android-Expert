@@ -48,6 +48,14 @@ android {
     buildFeatures {
         viewBinding true
     }
+    testOptions {
+        animationsDisabled = true
+        unitTests.all {
+            kover {
+                excludes = ["id.rezajuliandri.github.BuildConfig"]
+            }
+        }
+    }
     dynamicFeatures = [':favorites']
 }
 
