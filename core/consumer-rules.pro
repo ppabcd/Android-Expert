@@ -85,3 +85,8 @@ public *;
 ##---------------Begin: proguard configuration for RxJava ----------
 # Uncomment if you use RxJava
 #-dontwarn java.util.concurrent.Flow*
+
+##---------------Begin: proguard configuration for all Fragment----------
+-keep class * extends androidx.fragment.app.Fragment{}
+##---------------Begin: proguard configuration for all Domain Model----------
+-keepnames class * extends android.os.Parcelable
