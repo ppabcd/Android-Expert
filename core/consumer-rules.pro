@@ -55,7 +55,7 @@
 
 # Top-level functions that can only be used by Kotlin.
 -dontwarn retrofit2.KotlinExtensions
--dontwarn retrofit2.KotlinExtensions$*
+-dontwarn retrofit2.KotlinExtensions**
 
 # With R8 full mode, it sees no subtypes of Retrofit interfaces since they are created with a Proxy
 # and replaces all potential values with null. Explicitly keeping the interfaces prevents this.
@@ -86,7 +86,4 @@ public *;
 # Uncomment if you use RxJava
 #-dontwarn java.util.concurrent.Flow*
 
-##---------------Begin: proguard configuration for all Fragment----------
--keep class * extends androidx.fragment.app.Fragment{}
-##---------------Begin: proguard configuration for all Domain Model----------
--keepnames class * extends android.os.Parcelable
+##---------------Begin: proguard configuration for all Fragment---------
