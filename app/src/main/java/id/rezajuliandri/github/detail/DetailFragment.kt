@@ -145,10 +145,12 @@ class DetailFragment : Fragment() {
     }
     override fun onDestroy() {
         super.onDestroy()
+        binding?.pager?.adapter = null
         _binding = null
     }
     override fun onPause() {
         super.onPause()
+        binding?.pager?.adapter = null
         _binding = null
     }
 
