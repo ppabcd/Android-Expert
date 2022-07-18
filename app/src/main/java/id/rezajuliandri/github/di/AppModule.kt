@@ -31,5 +31,5 @@ val viewModelModule = module {
 }
 
 val settingModule = module {
-    factory { SettingPreferences(androidContext()) }
+    factory { SettingPreferences(androidContext().applicationContext) }
 }

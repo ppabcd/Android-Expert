@@ -51,7 +51,6 @@ class RepositoryAdapter(private val onItemClick: (Repository) -> Unit) :
                     return oldUser.id == newUser.id
                 }
 
-                @SuppressLint("DiffUtilEquals")
                 override fun areContentsTheSame(oldUser: Repository, newUser: Repository): Boolean {
                     return oldUser == newUser
                 }

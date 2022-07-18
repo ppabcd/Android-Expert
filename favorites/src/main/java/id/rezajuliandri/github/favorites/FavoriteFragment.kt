@@ -48,13 +48,30 @@ class FavoriteFragment : Fragment() {
         viewModel.getFavorites()
         binding?.apply {
             rvFavorites.apply {
-                layoutManager = LinearLayoutManager(activityContext)
+                layoutManager = LinearLayoutManager(activityContext.applicationContext)
                 setHasFixedSize(true)
                 adapter = favAdapter
             }
-            viewModel.favoritesResponse.observe(activityContext) {
+            viewModel.favoritesResponse.observe(viewLifecycleOwner) {
                 favAdapter.submitList(it)
             }
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        binding?.rvFavorites?.adapter = null
+        _binding = null
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        binding?.rvFavorites?.adapter = null
+    }
+
+    override fun onPause() {
+        super.onPause()
+        binding?.rvFavorites?.adapter = null
+        _binding = null
     }
 }

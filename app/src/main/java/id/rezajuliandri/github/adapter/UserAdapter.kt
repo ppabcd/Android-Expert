@@ -44,7 +44,7 @@ class UserAdapter(private val onItemClick: (User) -> Unit) :
                     return oldUser.id == newUser.id
                 }
 
-                @SuppressLint("DiffUtilEquals")
+
                 override fun areContentsTheSame(oldUser: User, newUser: User): Boolean {
                     return oldUser == newUser
                 }

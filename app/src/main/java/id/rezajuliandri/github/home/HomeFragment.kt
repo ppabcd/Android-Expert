@@ -1,6 +1,5 @@
 package id.rezajuliandri.github.home
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
@@ -55,7 +54,6 @@ class HomeFragment : Fragment() {
         activityContext.title = getString(R.string.app_name)
     }
 
-    @SuppressLint("CheckResult")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -118,5 +116,20 @@ class HomeFragment : Fragment() {
     private fun showSearchAlert(isNotValid: Boolean) {
         binding?.searchField?.error =
             if (isNotValid) getString(R.string.min_lenght_search) else null
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        binding?.rvContent?.adapter = null
+    }
+
+    override fun onPause() {
+        super.onPause()
+        _binding = null
     }
 }

@@ -78,6 +78,21 @@ class RepositoryFragment : Fragment() {
         }
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
+    }
+
+    override fun onPause() {
+        super.onPause()
+        _binding = null
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        binding?.rvDetail?.adapter = null
+    }
+
     companion object {
         const val ARG_USERNAME = "username"
     }

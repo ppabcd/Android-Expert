@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import id.rezajuliandri.core.data.Resource
+import id.rezajuliandri.github.R
 import id.rezajuliandri.github.adapter.UserAdapter
 import id.rezajuliandri.github.databinding.FragmentFollowingFollowersBinding
 import id.rezajuliandri.github.home.HomeFragmentDirections
@@ -43,7 +44,7 @@ class FollowingFollowersFragment : Fragment() {
         val follAdapter = UserAdapter { selectedUser ->
             val direction =
                 HomeFragmentDirections.actionHomeFragmentToDetailFragment(selectedUser.username)
-            findNavController().navigateUp()
+            findNavController().popBackStack(R.id.homeFragment, false)
             findNavController().navigate(direction)
         }
         viewModel.getFollowingFollowers(username, type)
@@ -90,5 +91,20 @@ class FollowingFollowersFragment : Fragment() {
     enum class FollType {
         FOLLOWING,
         FOLLOWERS
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
+    }
+
+    override fun onPause() {
+        super.onPause()
+        _binding = null
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        binding?.rvDetail?.adapter = null
     }
 }

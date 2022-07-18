@@ -130,18 +130,31 @@ class DetailFragment : Fragment() {
         if (isFavorite) {
             binding?.fab?.setImageDrawable(
                 ContextCompat.getDrawable(
-                    activityContext,
+                    activityContext.applicationContext,
                     R.drawable.ic_baseline_star_24
                 )
             )
         } else {
             binding?.fab?.setImageDrawable(
                 ContextCompat.getDrawable(
-                    activityContext,
+                    activityContext.applicationContext,
                     R.drawable.ic_baseline_star_border_24
                 )
             )
         }
+    }
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
+    }
+    override fun onPause() {
+        super.onPause()
+        _binding = null
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        binding?.pager?.adapter = null
     }
 
     companion object {
